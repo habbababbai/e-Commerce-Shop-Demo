@@ -1,5 +1,5 @@
 import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit";
-import { shopApi } from "../features/shop/shopCreateAPI";
+import { shopApi } from "../features/shopAPI/shopAPI";
 
 export const store = configureStore({
     reducer: {

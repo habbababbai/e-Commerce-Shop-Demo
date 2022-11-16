@@ -1,5 +1,5 @@
-import React, { useEffect } from "react";
-import { useGetAllProductsQuery } from "./shopCreateAPI";
+import React from "react";
+import { useGetAllProductsQuery } from "../../features/shopAPI/shopAPI";
 import ItemNode from "./itemNode";
 
 export default function Shop() {
@@ -16,6 +16,7 @@ export default function Shop() {
                         price={item.price}
                         category={item.category}
                         image={item.image}
+                        description={item.description}
                     ></ItemNode>
                 );
             })}
