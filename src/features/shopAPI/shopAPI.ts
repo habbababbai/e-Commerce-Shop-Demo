@@ -1,6 +1,8 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { Item } from "../../common/item";
 
+// reducer slice allowing us to fetch data from https://fakestoreapi.com/
+
 export const shopApi = createApi({
     reducerPath: "shopApi",
     baseQuery: fetchBaseQuery({ baseUrl: "https://fakestoreapi.com/" }),
@@ -20,6 +22,7 @@ export const shopApi = createApi({
     }),
 });
 
+// queries available by API
 export const {
     useGetAllProductsQuery,
     useGetProductByIdQuery,

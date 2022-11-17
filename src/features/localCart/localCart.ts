@@ -1,6 +1,9 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { Item } from "../../common/item";
 
+// Because of the fact we are using dummy API for this project to which we
+// can't actually add data, cart is stored locally
+// There go local cart reducers
 
 const initialState: Item[] = [];
 

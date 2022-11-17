@@ -2,6 +2,8 @@ import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit";
 import { shopApi } from "../features/shopAPI/shopAPI";
 import localCartReducer from "../features/localCart/localCart";
 
+// our redux store holding cart state and API
+
 export const store = configureStore({
     reducer: {
         [shopApi.reducerPath]: shopApi.reducer,
