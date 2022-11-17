@@ -10,6 +10,10 @@ export default function FilteredShopPage() {
         id as string
     );
 
+    if (isLoading) return <div>...Loading</div>;
+
+    if (error) return <div>Error occured!</div>;
+
     return (
         <div className="shop-container">
             {data?.map((item: Item) => {

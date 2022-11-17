@@ -15,7 +15,7 @@ export default function Navbar() {
                 onclick={() => setChecked(!checked)}
             ></NavbarButton>
             <Link className="homeButton" to="/">
-                <img src={homeIcon}></img>
+                <img src={homeIcon} alt={""}></img>
             </Link>
             {checked ? (
                 <NavbarMenu onClickFn={() => setChecked(false)}></NavbarMenu>

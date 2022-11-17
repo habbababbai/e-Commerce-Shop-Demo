@@ -6,6 +6,10 @@ import ItemNode from "./itemNode";
 export default function Shop() {
     const { data, error, isLoading } = useGetAllProductsQuery("");
 
+    if (isLoading) return <div>...Loading</div>;
+
+    if (error) return <div>Error occured!</div>;
+
     return (
         <div className="shop-container">
             {data?.map((item: Item) => {

@@ -8,6 +8,7 @@ interface Props {
 
 export function NavbarMenu(props: Props) {
     const { data, error, isLoading } = useGetAllProductCategoriesQuery("");
+
     return (
         <div className="navbar-menu">
             <p>
@@ -19,20 +20,26 @@ export function NavbarMenu(props: Props) {
                     Home
                 </Link>
             </p>
-            {data?.map((item: string) => {
-                const categoryId = `category/${item}`;
-                return (
-                    <p key={item}>
-                        <Link
-                            onClick={() => props.onClickFn()}
-                            to={categoryId}
-                            className="navbar-menu-element"
-                        >
-                            {item.charAt(0).toUpperCase() + item.slice(1)}
-                        </Link>
-                    </p>
-                );
-            })}
+            {isLoading ? (
+                <div>...Loading</div>
+            ) : error ? (
+                <div>Error occured!</div>
+            ) : (
+                data?.map((item: string) => {
+                    const categoryId = `category/${item}`;
+                    return (
+                        <p key={item}>
+                            <Link
+                                onClick={() => props.onClickFn()}
+                                to={categoryId}
+                                className="navbar-menu-element"
+                            >
+                                {item.charAt(0).toUpperCase() + item.slice(1)}
+                            </Link>
+                        </p>
+                    );
+                })
+            )}
         </div>
     );
 }
