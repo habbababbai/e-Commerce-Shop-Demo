@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
 import Shop from "./components/shopPage/shopPage";
+import FilteredShopPage from "./components/shopPage/filteredShopPage";
 import ItemPage from "./components/itemPage/itemPage";
 import Navbar from "./components/navbar/navbar";
 
@@ -13,6 +14,10 @@ function App() {
                 <Routes>
                     <Route path="/" element={<Shop />} />
                     <Route path="/items/:id" element={<ItemPage />} />
+                    <Route
+                        path="/category/:id"
+                        element={<FilteredShopPage />}
+                    />
                 </Routes>
             </div>
         </BrowserRouter>
