@@ -14,10 +14,12 @@ export default function Navbar() {
                 checked={checked}
                 onclick={() => setChecked(!checked)}
             ></NavbarButton>
-            <Link to="/">
+            <Link className="homeButton" to="/">
                 <img src={homeIcon}></img>
             </Link>
-            {checked ? <NavbarMenu></NavbarMenu> : null}
+            {checked ? (
+                <NavbarMenu onClickFn={() => setChecked(false)}></NavbarMenu>
+            ) : null}
         </div>
     );
 }
