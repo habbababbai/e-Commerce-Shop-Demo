@@ -1,13 +1,11 @@
 .navbar-menu {
     display: block;
     position: fixed;
-    background: linear-gradient(
-        90deg,
-        rgb(29, 29, 29) 0%,
-        rgba(255, 255, 255, 0) 100%
-    );
+    background-color: #000000e7;
     height: calc(100vh - 50px);
     width: 250px;
     top: 50px;
     left: 0;
+    color: #ffffff;
+    font-size: 22px;
 }
