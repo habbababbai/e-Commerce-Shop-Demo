@@ -20,6 +20,15 @@ export function NavbarMenu(props: Props) {
                     Home
                 </Link>
             </p>
+            <p>
+                <Link
+                    onClick={() => props.onClickFn()}
+                    className="navbar-menu-element"
+                    to="/cart"
+                >
+                    Cart
+                </Link>
+            </p>
             {isLoading ? (
                 <div>...Loading</div>
             ) : error ? (
