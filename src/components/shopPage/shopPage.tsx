@@ -1,4 +1,5 @@
 import React from "react";
+import { Item } from "../../common/item";
 import { useGetAllProductsQuery } from "../../features/shopAPI/shopAPI";
 import ItemNode from "./itemNode";
 
@@ -6,8 +7,8 @@ export default function Shop() {
     const { data, error, isLoading } = useGetAllProductsQuery("");
 
     return (
-        <div>
-            {data?.map((item) => {
+        <div className="shop-container">
+            {data?.map((item: Item) => {
                 return (
                     <ItemNode
                         key={item.id}
