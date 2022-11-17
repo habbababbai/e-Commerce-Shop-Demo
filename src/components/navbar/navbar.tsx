@@ -1,6 +1,7 @@
 import "./navbar.scss";
 import { Link } from "react-router-dom";
 import homeIcon from "../../assets/icons8-home-page-48.png";
+import cartIcon from "../../assets/icons8-shopping-cart-60.png";
 import { NavbarButton } from "./navbarButton";
 import { NavbarMenu } from "./navbarMenu";
 import { useState } from "react";
@@ -17,7 +18,9 @@ export default function Navbar() {
             <Link className="homeButton" to="/">
                 <img src={homeIcon} alt={""}></img>
             </Link>
-            <Link to="cart">Cart</Link>
+            <Link to="cart">
+                <img src={cartIcon} alt={""}></img>
+            </Link>
             {checked ? (
                 <NavbarMenu onClickFn={() => setChecked(false)}></NavbarMenu>
             ) : null}
