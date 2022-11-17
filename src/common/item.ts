@@ -5,4 +5,5 @@ export type Item = {
     category: string;
     description: string;
     image: string;
+    count?: number
 };

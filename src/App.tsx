@@ -5,6 +5,7 @@ import Shop from "./components/shopPage/shopPage";
 import FilteredShopPage from "./components/shopPage/filteredShopPage";
 import ItemPage from "./components/itemPage/itemPage";
 import Navbar from "./components/navbar/navbar";
+import Cart from "./components/cart/cart";
 
 function App() {
     return (
@@ -18,6 +19,7 @@ function App() {
                         path="/category/:id"
                         element={<FilteredShopPage />}
                     />
+                    <Route path="/cart" element={<Cart />} />
                 </Routes>
             </div>
         </BrowserRouter>

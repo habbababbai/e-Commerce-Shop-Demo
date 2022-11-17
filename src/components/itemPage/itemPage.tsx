@@ -1,11 +1,14 @@
 import "./itemPage.scss";
 import { useParams, Link } from "react-router-dom";
 import { useGetProductByIdQuery } from "../../features/shopAPI/shopAPI";
+import { useAppDispatch } from "../../app/hooks";
+import { addItem } from "../../features/localCart/localCart";
+import { Item } from "../../common/item";
 
 export default function ItemPage() {
     const { id } = useParams();
     const { data, error, isLoading } = useGetProductByIdQuery(id as string);
-
+    const dispatch = useAppDispatch();
     if (isLoading) return <div>Loading...</div>;
 
     if (error)
@@ -14,7 +17,7 @@ export default function ItemPage() {
         );
 
     return (
-        <div className="itemPage">
+        <div className="item-page">
             <h2>{data?.title}</h2>
             <img src={data?.image} alt={""}></img>
             <h3>Price: {data?.price}$</h3>
@@ -23,6 +26,11 @@ export default function ItemPage() {
                 Product Description: <br></br>
                 {data?.description}
             </p>
+            <div>
+                <button onClick={() => dispatch(addItem(data as Item))}>
+                    Add to Cart
+                </button>
+            </div>
             <p>
                 <Link to="/">Go home</Link>
             </p>

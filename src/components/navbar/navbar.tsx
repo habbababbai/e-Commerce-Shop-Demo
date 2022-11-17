@@ -17,6 +17,7 @@ export default function Navbar() {
             <Link className="homeButton" to="/">
                 <img src={homeIcon} alt={""}></img>
             </Link>
+            <Link to="cart">Cart</Link>
             {checked ? (
                 <NavbarMenu onClickFn={() => setChecked(false)}></NavbarMenu>
             ) : null}
