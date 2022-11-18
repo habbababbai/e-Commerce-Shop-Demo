@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Item } from "../../common/item";
 import { addItem } from "../../features/localCart/localCart";
-import { useAppDispatch } from "../../redux/hooks";
+import { useAppDispatch } from "../../app/hooks";
 import { Counter } from "../counter/counter";
 
 export default function ItemNode(props: Item) {
