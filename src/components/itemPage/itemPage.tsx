@@ -2,7 +2,7 @@ import "./itemPage.scss";
 import { useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { useGetProductByIdQuery } from "../../features/shopAPI/shopAPI";
-import { useAppDispatch } from "../../app/hooks";
+import { useAppDispatch } from "../../redux/hooks";
 import { addItem } from "../../features/localCart/localCart";
 import { Item } from "../../common/item";
 import { Counter } from "../counter/counter";
