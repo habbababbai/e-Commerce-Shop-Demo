@@ -8,9 +8,14 @@ export default function Cart() {
     const cost = calculateCartCost();
 
     function calculateCartCost() {
-        return cartItems
-            .reduce((sum, current) => current.price * current.count + sum, 0)
-            .toFixed(2);
+        if (cartItems) {
+            return cartItems
+                .reduce(
+                    (sum, current) => current.price * current.count + sum,
+                    0
+                )
+                .toFixed(2);
+        }
     }
     function isEmpty() {
         return cartItems.length === 0;
