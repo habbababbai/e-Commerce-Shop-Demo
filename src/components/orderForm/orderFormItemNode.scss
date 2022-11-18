@@ -1,0 +1,14 @@
+.order-form-item {
+    display: flex;
+    justify-content: space-between;
+}
+.order-form-item img {
+    height: 60px;
+    min-width: 60px;
+    max-width: 60px;
+    object-fit: contain;
+}
+.order-form-item-desc {
+    font-size: 14px;
+    text-align: right;
+}

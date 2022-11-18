@@ -23,13 +23,11 @@ export function CartNode(props: ExtendedItem) {
                 {props.description}
             </p>
             <Link to={itemId}>Details</Link> <br></br>
-            <p>
-                <Counter
-                    value={props.count}
-                    increment={() => dispatch(incrementItemCount(props))}
-                    decrement={() => dispatch(decrementItemCount(props))}
-                ></Counter>
-            </p>
+            <Counter
+                value={props.count}
+                increment={() => dispatch(incrementItemCount(props))}
+                decrement={() => dispatch(decrementItemCount(props))}
+            ></Counter>
             <button onClick={() => dispatch(removeItem(props))}>
                 Remove from Cart
             </button>

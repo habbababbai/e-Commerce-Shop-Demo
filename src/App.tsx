@@ -6,6 +6,7 @@ import FilteredShopPage from "./components/shopPage/filteredShopPage";
 import ItemPage from "./components/itemPage/itemPage";
 import Navbar from "./components/navbar/navbar";
 import Cart from "./components/cart/cart";
+import OrderForm from "./components/orderForm/orderForm";
 
 function App() {
     return (
@@ -20,6 +21,7 @@ function App() {
                         element={<FilteredShopPage />}
                     />
                     <Route path="/cart" element={<Cart />} />
+                    <Route path="/orderForm" element={<OrderForm />} />
                 </Routes>
             </div>
         </BrowserRouter>

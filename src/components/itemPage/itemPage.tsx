@@ -4,7 +4,6 @@ import { useParams, Link } from "react-router-dom";
 import { useGetProductByIdQuery } from "../../features/shopAPI/shopAPI";
 import { useAppDispatch } from "../../app/hooks";
 import { addItem } from "../../features/localCart/localCart";
-import { ExtendedItem } from "../../common/item";
 import { Item } from "../../common/item";
 import { Counter } from "../counter/counter";
 

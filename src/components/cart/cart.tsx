@@ -5,19 +5,21 @@ import { CartNode } from "./cartNode";
 
 export default function Cart() {
     const cartItems = useAppSelector((state) => state.localCart);
-    const cost = calculateCost();
+    const cost = calculateCartCost();
 
-    function calculateCost() {
-        let cost = 0;
-        cartItems.forEach((item) => {
-            cost += item.price * item.count;
-        });
-        return cost;
+    function calculateCartCost() {
+        return cartItems.reduce(
+            (sum, current) => current.price * current.count + sum,
+            0
+        ).toFixed(2);
+    }
+    function isEmpty() {
+        return cartItems.length === 0;
     }
 
     return (
         <div>
-            {cartItems.length > 0 ? (
+            {!isEmpty() ? (
                 cartItems.map((item) => {
                     return (
                         <CartNode
@@ -35,11 +37,33 @@ export default function Cart() {
             ) : (
                 <span>Your cart seems empty!</span>
             )}
+            <div>
+                {cartItems.map((item) => {
+                    return (
+                        <p key={item.id}>
+                            {item.title} x {item.count} :{" "}
+                            {item.count * item.price} $
+                        </p>
+                    );
+                })}
+            </div>
             <p>
                 <b>Total cart cost: {cost}$</b>
             </p>
             <p>
-                <Link to="/">Go back</Link>
+                <Link
+                    to="/orderForm"
+                    style={
+                        isEmpty()
+                            ? { pointerEvents: "none", opacity: "0.4" }
+                            : {}
+                    }
+                >
+                    Order
+                </Link>
+            </p>
+            <p>
+                <Link to="/">Go to Homepage</Link>
             </p>
         </div>
     );
