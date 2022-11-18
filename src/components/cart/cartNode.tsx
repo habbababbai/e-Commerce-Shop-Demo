@@ -1,7 +1,7 @@
 import "./cartNode.scss";
 import { Link } from "react-router-dom";
 import { ExtendedItem } from "../../common/item";
-import { useAppDispatch } from "../../app/hooks";
+import { useAppDispatch } from "../../redux/hooks";
 import {
     incrementItemCount,
     decrementItemCount,

@@ -1,6 +1,6 @@
 import "./cart.scss";
 import { Link } from "react-router-dom";
-import { useAppSelector } from "../../app/hooks";
+import { useAppSelector } from "../../redux/hooks";
 import { CartNode } from "./cartNode";
 
 export default function Cart() {
@@ -8,10 +8,9 @@ export default function Cart() {
     const cost = calculateCartCost();
 
     function calculateCartCost() {
-        return cartItems.reduce(
-            (sum, current) => current.price * current.count + sum,
-            0
-        ).toFixed(2);
+        return cartItems
+            .reduce((sum, current) => current.price * current.count + sum, 0)
+            .toFixed(2);
     }
     function isEmpty() {
         return cartItems.length === 0;
