@@ -5,6 +5,7 @@ import { useGetProductByIdQuery } from "../../features/shopAPI/shopAPI";
 import { useAppDispatch } from "../../app/hooks";
 import { addItem } from "../../features/localCart/localCart";
 import { ExtendedItem } from "../../common/item";
+import { Item } from "../../common/item";
 import { Counter } from "../counter/counter";
 
 export default function ItemPage() {
@@ -12,12 +13,19 @@ export default function ItemPage() {
     const { data, error, isLoading } = useGetProductByIdQuery(id as string);
     const dispatch = useAppDispatch();
     const [counter, setCounter] = useState(1);
+    const [showSuccess, setShowSuccess] = useState(false);
 
     function increment() {
         if (counter + 1 <= 20) setCounter(counter + 1);
     }
     function decrement() {
         if (counter - 1 > 0) setCounter(counter - 1);
+    }
+
+    function handleButtonClick() {
+        dispatch(addItem({ ...(data as Item), count: counter }));
+        setShowSuccess(true);
+        setTimeout(() => setShowSuccess(false), 3000);
     }
 
     if (isLoading) return <div>Loading...</div>;
@@ -43,9 +51,10 @@ export default function ItemPage() {
                     increment={increment}
                     decrement={decrement}
                 ></Counter>
-                <button onClick={() => dispatch(addItem(data as ExtendedItem))}>
-                    Add to Cart
-                </button>
+                <button onClick={() => handleButtonClick()}>Add to Cart</button>
+            </div>
+            <div className="add-success-monit">
+                {showSuccess ? <span>Succesfully added items!</span> : null}
             </div>
             <p>
                 <Link to="/">Go home</Link>

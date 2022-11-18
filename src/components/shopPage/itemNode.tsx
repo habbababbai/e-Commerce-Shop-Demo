@@ -42,11 +42,7 @@ export default function ItemNode(props: Item) {
                 decrement={decrement}
             ></Counter>
             <div className="add-success-monit">
-                {showSuccess ? (
-                    <span>Succesfully added items</span>
-                ) : (
-                    <span> </span>
-                )}
+                {showSuccess ? <span>Succesfully added items!</span> : null}
             </div>
         </div>
     );
