@@ -5,6 +5,15 @@ import { CartNode } from "./cartNode";
 
 export default function Cart() {
     const cartItems = useAppSelector((state) => state.localCart);
+    const cost = calculateCost();
+
+    function calculateCost() {
+        let cost = 0;
+        cartItems.forEach((item) => {
+            cost += item.price * item.count;
+        });
+        return cost;
+    }
 
     return (
         <div>
@@ -19,13 +28,14 @@ export default function Cart() {
                             category={item.category}
                             description={item.description}
                             image={item.image}
+                            count={item.count}
                         />
                     );
                 })
             ) : (
                 <span>Your cart seems empty!</span>
             )}
-
+            <p>Total cart cost: {cost}$</p>
             <p>
                 <Link to="/">Go back</Link>
             </p>

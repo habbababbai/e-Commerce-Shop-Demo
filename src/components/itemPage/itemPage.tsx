@@ -1,14 +1,25 @@
 import "./itemPage.scss";
+import { useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { useGetProductByIdQuery } from "../../features/shopAPI/shopAPI";
 import { useAppDispatch } from "../../app/hooks";
 import { addItem } from "../../features/localCart/localCart";
-import { Item } from "../../common/item";
+import { ExtendedItem } from "../../common/item";
+import { Counter } from "../counter/counter";
 
 export default function ItemPage() {
     const { id } = useParams();
     const { data, error, isLoading } = useGetProductByIdQuery(id as string);
     const dispatch = useAppDispatch();
+    const [counter, setCounter] = useState(1);
+
+    function increment() {
+        if (counter + 1 <= 20) setCounter(counter + 1);
+    }
+    function decrement() {
+        if (counter - 1 > 0) setCounter(counter - 1);
+    }
+
     if (isLoading) return <div>Loading...</div>;
 
     if (error)
@@ -27,7 +38,12 @@ export default function ItemPage() {
                 {data?.description}
             </p>
             <div>
-                <button onClick={() => dispatch(addItem(data as Item))}>
+                <Counter
+                    value={counter}
+                    increment={increment}
+                    decrement={decrement}
+                ></Counter>
+                <button onClick={() => dispatch(addItem(data as ExtendedItem))}>
                     Add to Cart
                 </button>
             </div>
