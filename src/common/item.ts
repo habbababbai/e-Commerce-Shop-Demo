@@ -1,3 +1,5 @@
+// basic type of singular item fetched from API
+
 export type Item = {
     id: number;
     title: string;
@@ -5,5 +7,8 @@ export type Item = {
     category: string;
     description: string;
     image: string;
-    count?: number
+};
+
+export type ExtendedItem = Item & {
+    count: number;
 };
