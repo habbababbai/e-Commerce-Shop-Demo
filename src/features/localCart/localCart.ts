@@ -17,7 +17,7 @@ export const localCartSlice = createSlice({
         ) => {
             // when adding new item to cart we need to check if this item
             // is not already there
-            // afterwards we 
+            // afterwards we add existing and new item count
             const itemId = action.payload.id;
             if (state.find((item) => item.id === itemId)) {
                 const index = state.findIndex((item) => item.id === itemId);
@@ -34,9 +34,36 @@ export const localCartSlice = createSlice({
         ) => {
             return state.filter((i) => i.id !== action.payload.id);
         },
+        incrementItemCount: (
+            state: ExtendedItem[],
+            action: PayloadAction<ExtendedItem>
+        ) => {
+            const itemId = action.payload.id;
+            if (state.find((item) => item.id === itemId)) {
+                const index = state.findIndex((item) => item.id === itemId);
+                const newState = state;
+                newState[index].count += 1;
+                if (newState[index].count > 20) newState[index].count = 20;
+                return newState;
+            }
+        },
+        decrementItemCount: (
+            state: ExtendedItem[],
+            action: PayloadAction<ExtendedItem>
+        ) => {
+            const itemId = action.payload.id;
+            if (state.find((item) => item.id === itemId)) {
+                const index = state.findIndex((item) => item.id === itemId);
+                const newState = state;
+                newState[index].count -= 1;
+                if (newState[index].count < 1) newState[index].count = 1;
+                return newState;
+            }
+        },
     },
 });
 
-export const { addItem, removeItem } = localCartSlice.actions;
+export const { addItem, removeItem, incrementItemCount, decrementItemCount } =
+    localCartSlice.actions;
 
 export default localCartSlice.reducer;

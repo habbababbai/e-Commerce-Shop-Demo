@@ -35,7 +35,9 @@ export default function Cart() {
             ) : (
                 <span>Your cart seems empty!</span>
             )}
-            <p>Total cart cost: {cost}$</p>
+            <p>
+                <b>Total cart cost: {cost}$</b>
+            </p>
             <p>
                 <Link to="/">Go back</Link>
             </p>

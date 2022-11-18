@@ -2,7 +2,12 @@ import "./cartNode.scss";
 import { Link } from "react-router-dom";
 import { ExtendedItem } from "../../common/item";
 import { useAppDispatch } from "../../app/hooks";
-import { removeItem } from "../../features/localCart/localCart";
+import {
+    incrementItemCount,
+    decrementItemCount,
+    removeItem,
+} from "../../features/localCart/localCart";
+import { Counter } from "../counter/counter";
 
 export function CartNode(props: ExtendedItem) {
     const dispatch = useAppDispatch();
@@ -18,7 +23,13 @@ export function CartNode(props: ExtendedItem) {
                 {props.description}
             </p>
             <Link to={itemId}>Details</Link> <br></br>
-            <p>Number of product: {props.count}</p>
+            <p>
+                <Counter
+                    value={props.count}
+                    increment={() => dispatch(incrementItemCount(props))}
+                    decrement={() => dispatch(decrementItemCount(props))}
+                ></Counter>
+            </p>
             <button onClick={() => dispatch(removeItem(props))}>
                 Remove from Cart
             </button>
