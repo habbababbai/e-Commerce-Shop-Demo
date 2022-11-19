@@ -9,6 +9,9 @@ export type Item = {
     image: string;
 };
 
+// extended type of Item including information about item count
+// it is used in our local cart store
+
 export type ExtendedItem = Item & {
     count: number;
 };
