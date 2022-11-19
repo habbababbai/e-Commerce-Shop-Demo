@@ -4,7 +4,6 @@ import localCartReducer from "../features/localCart/localCart";
 import { combineReducers } from "@reduxjs/toolkit";
 import { persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
-import { setupListeners } from "@reduxjs/toolkit/dist/query";
 
 // our redux store holding cart state and API
 
@@ -24,13 +23,14 @@ export const store = configureStore({
     reducer: persistedReducer,
     middleware: (getDefaultMiddleware) =>
         getDefaultMiddleware({
+            // action PERSIST needs to be ignored in this case
+            // If we do not do that, redux will throw errors
+            // https://redux-toolkit.js.org/usage/usage-guide#use-with-redux-persist
             serializableCheck: {
                 ignoredActions: ["persist/PERSIST"],
             },
         }).concat(shopApi.middleware),
 });
-
-//setupListeners(store.dispatch);
 
 export type AppDispatch = typeof store.dispatch;
 export type RootState = ReturnType<typeof store.getState>;
