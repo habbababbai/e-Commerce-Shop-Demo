@@ -6,6 +6,7 @@ import { useAppDispatch } from "../../redux/hooks";
 import { addItem } from "../../features/localCart/localCart";
 import { Item } from "../../common/item";
 import { Counter } from "../counter/counter";
+import ErrorPage from "../errorPage/errorPage";
 
 export default function ItemPage() {
     const { id } = useParams();
@@ -29,13 +30,10 @@ export default function ItemPage() {
 
     if (isLoading) return <div>Loading...</div>;
 
-    if (error)
-        return (
-            <div>Sorry! Error has occured, please try reloading website</div>
-        );
+    if (error || !data) return <ErrorPage />;
 
     return (
-        <div className="item-page">
+        <div className="item-page navbar-offset">
             <h2>{data?.title}</h2>
             <img src={data?.image} alt={""}></img>
             <h3>Price: {data?.price}$</h3>

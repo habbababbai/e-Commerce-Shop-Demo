@@ -15,10 +15,14 @@ export default function Navbar() {
                 checked={checked}
                 onclick={() => setChecked(!checked)}
             ></NavbarButton>
-            <Link className="homeButton" to="/">
+            <Link
+                onClick={() => setChecked(false)}
+                className="homeButton"
+                to="/"
+            >
                 <img src={homeIcon} alt={""}></img>
             </Link>
-            <Link to="cart">
+            <Link onClick={() => setChecked(false)} to="cart">
                 <img src={cartIcon} alt={""}></img>
             </Link>
             {checked ? (

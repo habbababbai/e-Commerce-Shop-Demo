@@ -45,7 +45,7 @@ export default function OrderForm() {
 
     return (
         <div>
-            <div className="cart-summary">
+            <div className="cart-summary navbar-offset">
                 <h1>Cart Summary:</h1>
                 {cartItems.map((item) => {
                     return (

@@ -11,7 +11,7 @@ export default function Shop() {
     if (error) return <div>Error occured!</div>;
 
     return (
-        <div className="shop-container">
+        <div className="shop-container navbar-offset">
             <div>
                 <h1>Welcome to my demo store!</h1>
                 <h3>

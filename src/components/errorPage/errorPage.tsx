@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export default function ErrorPage() {
     return (
-        <div>
+        <div className="navbar-offset">
             <h1>Sorry, something went wrong!</h1>
             <p>Press button below to go to homepage</p>
             <Link to="/">Homepage</Link>

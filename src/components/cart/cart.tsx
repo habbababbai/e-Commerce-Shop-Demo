@@ -22,7 +22,7 @@ export default function Cart() {
     }
 
     return (
-        <div>
+        <div className="navbar-offset">
             {!isEmpty() ? (
                 cartItems.map((item) => {
                     return (
