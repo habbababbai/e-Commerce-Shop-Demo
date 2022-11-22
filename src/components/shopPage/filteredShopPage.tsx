@@ -16,6 +16,7 @@ export default function FilteredShopPage() {
 
     return (
         <div className="shop-container">
+            <h1>{`${id?.charAt(0).toUpperCase()}${id?.slice(1)}`}</h1>
             {data?.map((item: Item) => {
                 return (
                     <ItemNode

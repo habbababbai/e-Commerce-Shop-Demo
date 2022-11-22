@@ -12,6 +12,13 @@ export default function Shop() {
 
     return (
         <div className="shop-container">
+            <div>
+                <h1>Welcome to my demo store!</h1>
+                <h3>
+                    This store is using data from{" "}
+                    <a href="https://fakestoreapi.com/">Fake Store API</a>
+                </h3>
+            </div>
             {data?.map((item: Item) => {
                 return (
                     <ItemNode

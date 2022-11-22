@@ -7,6 +7,7 @@ import ItemPage from "./components/itemPage/itemPage";
 import Navbar from "./components/navbar/navbar";
 import Cart from "./components/cart/cart";
 import OrderForm from "./components/orderForm/orderForm";
+import ThankYouPage from "./components/thankYouPage/thankYouPage";
 
 function App() {
     return (
@@ -22,6 +23,10 @@ function App() {
                     />
                     <Route path="/cart" element={<Cart />} />
                     <Route path="/orderForm" element={<OrderForm />} />
+                    <Route
+                        path="/thankYouPage"
+                        element={<ThankYouPage />}
+                    ></Route>
                 </Routes>
             </div>
         </BrowserRouter>

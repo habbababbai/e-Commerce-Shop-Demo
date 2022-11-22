@@ -23,6 +23,10 @@ export default function OrderFormSelectInput(props: Props) {
                     );
                 })}
             </select>
+            <br></br>
+            <small className="alert">
+                {meta.error ? meta.error : <>&nbsp;</>}
+            </small>
         </div>
     );
 }

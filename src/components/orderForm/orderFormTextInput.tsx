@@ -1,4 +1,4 @@
-import "./orderFormTextInput";
+import "./orderFormTextInput.scss";
 import { useField } from "formik";
 
 interface Props {
@@ -19,11 +19,9 @@ export default function OrderFormTextInput(props: Props) {
                 className="order-form-text"
             ></input>{" "}
             <br></br>
-            {meta.error ? (
-                <small className="alert alert-danger form-text text-muted">
-                    {meta.error}
-                </small>
-            ) : null}
+            <small className="alert">
+                {meta.error ? meta.error : <>&nbsp;</>}
+            </small>
         </div>
     );
 }

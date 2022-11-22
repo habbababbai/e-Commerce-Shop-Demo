@@ -50,7 +50,12 @@ export default function ItemPage() {
                     increment={increment}
                     decrement={decrement}
                 ></Counter>
-                <button onClick={() => handleButtonClick()}>Add to Cart</button>
+                <button
+                    disabled={showSuccess}
+                    onClick={() => handleButtonClick()}
+                >
+                    Add to Cart
+                </button>
             </div>
             <div className="add-success-monit">
                 {showSuccess ? <span>Succesfully added items!</span> : null}

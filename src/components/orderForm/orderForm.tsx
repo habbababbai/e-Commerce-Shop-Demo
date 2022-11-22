@@ -1,7 +1,7 @@
 import "./orderForm.scss";
-import { useAppSelector } from "../../redux/hooks";
+import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import OrderFormItemNode from "./orderFormItemNode";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import ErrorPage from "../errorPage/errorPage";
 import { Formik, Field, Form } from "formik";
 import OrderFormTextInput from "./orderFormTextInput";
@@ -14,17 +14,31 @@ import {
     stNumberRegex,
 } from "../../common/regexes";
 import * as Yup from "yup";
+import { ExtendedItem } from "../../common/item";
+import { removeAllItems } from "../../features/localCart/localCart";
+import { useState } from "react";
 
-const countryListExtended = countryList;
-countryListExtended.unshift("-");
+const req = "Field required";
 
 export default function OrderForm() {
     const cartItems = useAppSelector((state) => state.localCart);
+    const dispatch = useAppDispatch();
+    const navigate = useNavigate();
+    const [submitDisabled, setSubmitDisabled] = useState(false);
 
     function calculateCartCost() {
         return cartItems
             .reduce((sum, current) => current.price * current.count + sum, 0)
             .toFixed(2);
+    }
+
+    function handleForm(values: any) {
+        setSubmitDisabled(true);
+        setTimeout(() => {
+            console.log(values);
+            navigate("/thankYouPage");
+            dispatch(removeAllItems());
+        }, 500);
     }
 
     if (cartItems.length === 0) return <ErrorPage />;
@@ -61,21 +75,26 @@ export default function OrderForm() {
                             .min(2, "Name must have at least 2 characters")
                             .max(40, "Name can have no more than 40 characters")
                             .matches(nameRegex, "Invalid format")
-                            .required("Field required"),
+                            .required(req),
                         lastname: Yup.string()
                             .min(2, "Last name must have at least 2 characters")
                             .max(40, "Name can have no more than 40 characters")
                             .matches(nameRegex, "Invalid format")
-                            .required("Field required"),
-                        mail: Yup.string().email("Invalid e-mail format"),
-                        phone: Yup.string().matches(
-                            phoneNumberRegex,
-                            "Invalid phone number format"
-                        ),
-                        country: Yup.string().oneOf(
-                            countryList,
-                            "Please select a country"
-                        ),
+                            .required(req),
+                        mail: Yup.string()
+                            .email("Invalid e-mail format")
+                            .required(req),
+                        phone: Yup.string()
+                            .matches(
+                                phoneNumberRegex,
+                                "Invalid phone number format"
+                            )
+                            .required(req),
+                        country: Yup.string()
+
+                            .oneOf(countryList, "Please select a country")
+                            .notOneOf(["-"], "Please select a country")
+                            .required(req),
                         city: Yup.string()
                             .min(2, "City must have at least 2 characters")
                             .max(60, "City can have no more than 60 characters")
@@ -100,8 +119,17 @@ export default function OrderForm() {
                             )
                             .matches(stNumberRegex, "Invalid format")
                             .required("Field required"),
+                        comment: Yup.string()
+                            .max(
+                                255,
+                                "Comment can have no more than 255 characters"
+                            )
+                            .matches(nameRegex, "Invalid format")
+                            .optional(),
                     })}
-                    onSubmit={(values) => console.log(values)}
+                    onSubmit={(values) => {
+                        handleForm(values);
+                    }}
                 >
                     <Form className="formik">
                         <OrderFormTextInput
@@ -123,7 +151,7 @@ export default function OrderForm() {
                         <OrderFormSelectInput
                             label="Country: "
                             name="country"
-                            options={countryListExtended}
+                            options={countryList}
                         ></OrderFormSelectInput>
                         <OrderFormTextInput
                             label="City: "
@@ -144,7 +172,9 @@ export default function OrderForm() {
                         <p>
                             Place order for: <b>{calculateCartCost()}$</b>
                         </p>
-                        <button type="submit">Place Order</button>
+                        <button disabled={submitDisabled} type="submit">
+                            Place Order
+                        </button>
                     </Form>
                 </Formik>
             </div>

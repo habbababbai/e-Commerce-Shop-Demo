@@ -34,6 +34,9 @@ export const localCartSlice = createSlice({
         ) => {
             return state.filter((i) => i.id !== action.payload.id);
         },
+        removeAllItems: (state: ExtendedItem[], action: PayloadAction) => {
+            return [];
+        },
         incrementItemCount: (
             state: ExtendedItem[],
             action: PayloadAction<ExtendedItem>
@@ -63,7 +66,12 @@ export const localCartSlice = createSlice({
     },
 });
 
-export const { addItem, removeItem, incrementItemCount, decrementItemCount } =
-    localCartSlice.actions;
+export const {
+    addItem,
+    removeItem,
+    incrementItemCount,
+    decrementItemCount,
+    removeAllItems,
+} = localCartSlice.actions;
 
 export default localCartSlice.reducer;

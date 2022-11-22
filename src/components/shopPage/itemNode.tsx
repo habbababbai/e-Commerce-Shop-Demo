@@ -1,5 +1,5 @@
 import "./itemNode.scss";
-import React from "react";
+import React, { useRef } from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Item } from "../../common/item";
@@ -34,7 +34,9 @@ export default function ItemNode(props: Item) {
             <p>Price:{props.price}$</p>
             <p>Category: {props.category}</p>
             <Link to={itemId}>Details</Link>&nbsp;
-            <button onClick={() => handleButtonClick()}>Add to Cart</button>
+            <button disabled={showSuccess} onClick={() => handleButtonClick()}>
+                Add to Cart
+            </button>
             <Counter
                 value={counter}
                 increment={increment}
