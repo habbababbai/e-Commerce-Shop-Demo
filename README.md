@@ -4,19 +4,20 @@ This project is simple dummy web store using fake data available at [FakeStore](
 Because of the fact that we can't actually post data to the API and later fetch it, cart was created as local state stored in Redux store.
 App is available [right here](https://habbababbai.github.io/e-Commerce-Shop-Demo/). \
 \
-Technologies and packages used in this project are: 
-- React
-- Redux Toolkit
-- Sass
-- Formik
+Technologies and packages used in this project are:
+
+-   React
+-   Redux Toolkit
+-   Sass
+-   Formik
 
 ## Folder Structure
-- **assets** ( images and icons )
-- **common** ( types, interfaces and other )
-- **components** ( react components )
-- **features** ( Redux Toolkit store slices )
-- **redux** ( store and it's hooks )
 
+-   **assets** ( images and icons )
+-   **common** ( types, interfaces and other )
+-   **components** ( react components )
+-   **features** ( Redux Toolkit store slices )
+-   **redux** ( store and its hooks )
 
 ## Available Scripts - scrapped from create-react-app
 
