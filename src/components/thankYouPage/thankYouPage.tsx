@@ -5,7 +5,7 @@ import Footer from "../footer/footer";
 
 export default function ThankYouPage() {
     return (
-        <div className="bg navbar-offset">
+        <div className="thank-you-bg navbar-offset">
             <div className="thank-you-container">
                 <h1>Thank you for you order!</h1>
                 <p>

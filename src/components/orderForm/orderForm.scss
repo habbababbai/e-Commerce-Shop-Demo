@@ -3,8 +3,7 @@
     color: #bd2727;
 }
 .order-form {
-    display: flex;
-    justify-content: center;
+    @include flex-column();
 }
 .order-form-container {
     @include white-container();
@@ -25,4 +24,3 @@
     height: 45px;
     width: 140px;
 }
-

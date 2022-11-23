@@ -1,5 +1,8 @@
 @import "../../globals.scss";
-
+.cart-bg {
+    @include flex-column;
+    min-height: 99vh;
+}
 .cart-button {
     @include blue-button;
     height: 45px;
@@ -9,7 +12,12 @@
     text-align: center;
     padding-left: 0;
 }
-.cart-summary {
-    text-align: left;
-    padding-left: 10px;
+.cart-header {
+    padding-top: 36px;
+}
+.cart-button {
+    margin-bottom: 36px;
+}
+.cart-container {
+    @include flex-column;
 }

@@ -1,0 +1,19 @@
+@import "../../globals.scss";
+
+.error-bg {
+    @include flex-column();
+    min-height: 96vh;
+}
+.error-container {
+    margin-top: 48px;
+    @include white-container();
+    height: 250px;
+}
+.error-button {
+    @include blue-button();
+    margin-top: 24px;
+    height: 45px;
+    width: 120px;
+}
+
+

@@ -3,11 +3,6 @@
 .cart-node img {
     width: 100px;
 }
-.cart-container {
-    display: flex;
-    justify-content: center;
-    padding-bottom: 36px;
-}
 .cart-items {
     margin-top: 36px;
     @include white-container();

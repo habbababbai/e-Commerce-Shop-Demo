@@ -5,11 +5,12 @@ import { Item } from "../../common/item";
 import { useGetAllProductsQuery } from "../../features/shopAPI/shopAPI";
 import ItemNode from "./itemNode";
 import Footer from "../footer/footer";
+import Loading from "../loading/loading";
 
-export default function Shop() {
+export default function ShopPage() {
     const { data, error, isLoading } = useGetAllProductsQuery("");
 
-    if (isLoading) return <div>...Loading</div>;
+    if (isLoading) return <Loading />;
 
     if (error) return <div>Error occured!</div>;
 

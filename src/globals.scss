@@ -48,6 +48,12 @@ $color2: #355e75;
     margin-top: 32px;
     margin-bottom: 32px;
 }
+@mixin flex-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
 
 .success-monit {
     color: #257729;

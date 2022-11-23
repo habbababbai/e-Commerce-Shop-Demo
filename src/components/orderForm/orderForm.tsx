@@ -17,6 +17,7 @@ import * as Yup from "yup";
 import { ExtendedItem } from "../../common/item";
 import { removeAllItems } from "../../features/localCart/localCart";
 import { useState } from "react";
+import Footer from "../footer/footer";
 
 const req = "Field required";
 
@@ -201,6 +202,7 @@ export default function OrderForm() {
                     </Formik>
                 </div>
             </div>
+            <Footer></Footer>
         </div>
     );
 }
