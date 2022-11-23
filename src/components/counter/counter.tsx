@@ -8,7 +8,7 @@ interface Props {
 
 export function Counter(props: Props) {
     return (
-        <div>
+        <div className="counter">
             <button onClick={props.increment}>+</button>
             <span>{props.value}</span>
             <button onClick={props.decrement}>-</button>

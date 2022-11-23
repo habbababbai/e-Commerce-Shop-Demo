@@ -31,10 +31,21 @@ export default function ItemNode(props: Item) {
         <div className="item-node" key={props.id}>
             <h2>{props.title}</h2>
             <img src={props.image} alt={""}></img>
-            <p>Price:{props.price}$</p>
-            <p>Category: {props.category}</p>
-            <Link to={itemId}>Details</Link>&nbsp;
-            <button disabled={showSuccess} onClick={() => handleButtonClick()}>
+            <p>
+                Price : <b>{props.price} $</b>
+            </p>
+            <p>
+                Category: <b>{props.category}</b>
+            </p>
+            <Link to={itemId}>
+                <button className="item-node-button">Details</button>
+            </Link>
+            &nbsp;
+            <button
+                className="item-node-button"
+                disabled={showSuccess}
+                onClick={() => handleButtonClick()}
+            >
                 Add to Cart
             </button>
             <Counter
@@ -43,7 +54,13 @@ export default function ItemNode(props: Item) {
                 decrement={decrement}
             ></Counter>
             <div className="add-success-monit">
-                {showSuccess ? <span>Succesfully added items!</span> : null}
+                {showSuccess ? (
+                    <span className="success-monit">
+                        &nbsp;Succesfully added items!&nbsp;
+                    </span>
+                ) : (
+                    <>&nbsp;</>
+                )}
             </div>
         </div>
     );

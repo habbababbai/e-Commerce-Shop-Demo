@@ -1,4 +1,34 @@
+@import "../../globals.scss";
+
+.item-page-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 100px;
+}
+
+.item-page {
+    height: max-content;
+    @include white-container();
+    margin-bottom: 32px;
+}
+.item-page h2 {
+    @include black-font();
+}
+
 .item-page img {
     max-height: 150px;
     max-width: 150px;
+}
+.item-page-button {
+    margin-top: 5px;
+
+    height: 45px;
+    width: 120px;
+    @include blue-button();
+}
+.description {
+    @include text-left();
+    padding-bottom: 24px;
 }

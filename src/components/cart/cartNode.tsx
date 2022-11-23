@@ -16,21 +16,37 @@ export function CartNode(props: ExtendedItem) {
         <div className="cart-node">
             <h2>{props.title}</h2>
             <img src={props.image} alt={""}></img>
-            <p>Price:{props.price}$</p>
-            <p>Category: {props.category}</p>
             <p>
-                Description: <br></br>
-                {props.description}
+                Price : <b>{props.price} $</b>
             </p>
-            <Link to={itemId}>Details</Link> <br></br>
+            <p>
+                Category: <b>{props.category}</b>
+            </p>
+            <div>
+                <p>
+                    <b>Description:</b>
+                </p>
+                <p className="cart-description">{props.description}</p>
+            </div>
+            <Link to={itemId}>
+                <button className="cart-node-button">Details</button>
+            </Link>{" "}
+            <br></br>
+            <p>
+                Total Cost : <b>{(props.price * props.count).toFixed(2)} $</b>
+            </p>
             <Counter
                 value={props.count}
                 increment={() => dispatch(incrementItemCount(props))}
                 decrement={() => dispatch(decrementItemCount(props))}
             ></Counter>
-            <button onClick={() => dispatch(removeItem(props))}>
-                Remove from Cart
+            <button
+                className="cart-node-button"
+                onClick={() => dispatch(removeItem(props))}
+            >
+                Remove
             </button>
+            <div className="cart-bottom-bar">&nbsp;</div>
         </div>
     );
 }

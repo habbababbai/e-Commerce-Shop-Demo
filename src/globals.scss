@@ -1,0 +1,60 @@
+$navbarHeight: 50px;
+$color1: #4982a3;
+$color2: #355e75;
+
+@mixin node-shadow() {
+    box-shadow: 1px 1px 19px -1px rgba(0, 0, 0, 0.59);
+    -webkit-box-shadow: 1px 1px 19px -1px rgba(0, 0, 0, 0.59);
+    -moz-box-shadow: 1px 1px 19px -1px rgba(0, 0, 0, 0.59);
+}
+@mixin black-font() {
+    color: black;
+}
+
+@mixin blue-button() {
+    text-decoration: none;
+    border: none;
+    font-family: "Montserrat", sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: $color1;
+    color: #ffffff;
+    border-radius: 13px;
+}
+@mixin round-border() {
+    border-radius: 15px;
+}
+@mixin white-container() {
+    background-color: #ffffff;
+    @include round-border();
+    @include node-shadow();
+    width: 95%;
+    h1,
+    h2,
+    h3,
+    h4 {
+        color: #000000;
+    }
+}
+@mixin text-left {
+    text-align: left;
+    padding: 10px 10px 10px 10px;
+}
+@mixin bottom-bar {
+    background-color: #757575;
+    border-radius: 10px;
+    height: 5px;
+    width: 95%;
+    margin-top: 32px;
+    margin-bottom: 32px;
+}
+
+.success-monit {
+    color: #257729;
+    border: 1px #257729 solid;
+    border-radius: 5px;
+    background-color: #cbf0cc;
+}
+.add-success-monit {
+    padding-top: 10px;
+}

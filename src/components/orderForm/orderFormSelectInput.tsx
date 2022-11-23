@@ -12,7 +12,7 @@ export default function OrderFormSelectInput(props: Props) {
 
     return (
         <div>
-            <label htmlFor={props.name}>{props.label}</label>
+            <label className="order-form-label" htmlFor={props.name}>{props.label}</label>
             <br></br>
             <select {...field} name={props.name}>
                 {props.options.map((option, index) => {

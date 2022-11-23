@@ -14,8 +14,8 @@ export default function OrderFormItemNode(props: Props) {
                 <span>{props.item.title}</span>
                 <br></br>
                 <span>
-                    {props.item.price}$ times {props.item.count} ={" "}
-                    {props.item.count * props.item.price}$
+                    <b>{props.item.price}$</b> x <b>{props.item.count}</b> ={" "}
+                    <b>{props.item.count * props.item.price}$</b>
                 </span>
             </div>
         </div>

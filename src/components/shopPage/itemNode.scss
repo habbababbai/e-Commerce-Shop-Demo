@@ -1,4 +1,19 @@
+@import "../../globals.scss";
+
+.item-node {
+    @include white-container();
+}
+
 .item-node img {
     max-height: 150px;
     max-width: 150px;
+}
+.item-node h2 {
+    padding-top: 32px;
+    @include black-font();
+}
+.item-node-button {
+    @include blue-button();
+    height: 40px;
+    width: 120px;
 }

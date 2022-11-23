@@ -1,4 +1,4 @@
-import "./orderFormTextAreaInput";
+import "./orderFormTextAreaInput.scss";
 import { useField } from "formik";
 
 interface Props {
@@ -11,7 +11,7 @@ export default function OrderFormTextAreaInput(props: Props) {
 
     return (
         <div>
-            <label htmlFor={props.name}>{props.label}</label>
+            <label className="order-form-label" htmlFor={props.name}>{props.label}</label>
             <br></br>
             <textarea
                 value={meta.value}

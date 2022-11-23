@@ -1,3 +1,28 @@
+@import "../../globals.scss";
 .alert {
     color: #bd2727;
 }
+.order-form {
+    display: flex;
+    justify-content: center;
+}
+.order-form-container {
+    @include white-container();
+    margin-top: 64px;
+    margin-bottom: 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.order-form-bar {
+    @include bottom-bar();
+}
+.formik {
+    padding-bottom: 48px;
+}
+.order-button {
+    @include blue-button();
+    height: 45px;
+    width: 140px;
+}
+

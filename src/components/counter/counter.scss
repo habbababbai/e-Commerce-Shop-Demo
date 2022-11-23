@@ -1,0 +1,29 @@
+@import "../../globals.scss";
+
+@mixin item-node-buttons() {
+    font-weight: bold;
+    background-color: $color1;
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    height: 32px;
+    width: 32px;
+}
+@mixin item-node-font() {
+    font-size: 24px;
+    font-weight: bold;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.counter {
+    padding-top: 10px;
+}
+
+.counter button {
+    @include item-node-buttons();
+    @include item-node-font();
+}
+.counter span {
+    @include item-node-font();
+}

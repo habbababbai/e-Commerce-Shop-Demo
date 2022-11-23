@@ -7,6 +7,7 @@ import { addItem } from "../../features/localCart/localCart";
 import { Item } from "../../common/item";
 import { Counter } from "../counter/counter";
 import ErrorPage from "../errorPage/errorPage";
+import Footer from "../footer/footer";
 
 export default function ItemPage() {
     const { id } = useParams();
@@ -33,34 +34,46 @@ export default function ItemPage() {
     if (error || !data) return <ErrorPage />;
 
     return (
-        <div className="item-page navbar-offset">
-            <h2>{data?.title}</h2>
-            <img src={data?.image} alt={""}></img>
-            <h3>Price: {data?.price}$</h3>
-            <h3>Category: {data?.category}</h3>
-            <p>
-                Product Description: <br></br>
-                {data?.description}
-            </p>
-            <div>
-                <Counter
-                    value={counter}
-                    increment={increment}
-                    decrement={decrement}
-                ></Counter>
-                <button
-                    disabled={showSuccess}
-                    onClick={() => handleButtonClick()}
-                >
-                    Add to Cart
-                </button>
+        <div className="item-page-container">
+            <div className="item-page navbar-offset">
+                <h2>{data?.title}</h2>
+                <img src={data?.image} alt={""}></img>
+                <h3>Price: {data?.price}$</h3>
+                <h3>Category: {data?.category}</h3>
+                <p>
+                    <b>Product Description:</b> <br></br>
+                </p>
+                <p className="description">{data?.description}</p>
+                <div>
+                    <Counter
+                        value={counter}
+                        increment={increment}
+                        decrement={decrement}
+                    ></Counter>
+                    <button
+                        className="item-page-button"
+                        disabled={showSuccess}
+                        onClick={() => handleButtonClick()}
+                    >
+                        Add to Cart
+                    </button>
+                </div>
+                <div className="add-success-monit">
+                    {showSuccess ? (
+                        <span className="success-monit">
+                            &nbsp;Succesfully added items!&nbsp;
+                        </span>
+                    ) : (
+                        <>&nbsp;</>
+                    )}
+                </div>
+                <p>
+                    <Link to="/">
+                        <button className="item-page-button">Go home</button>
+                    </Link>
+                </p>
             </div>
-            <div className="add-success-monit">
-                {showSuccess ? <span>Succesfully added items!</span> : null}
-            </div>
-            <p>
-                <Link to="/">Go home</Link>
-            </p>
+            <Footer></Footer>
         </div>
     );
 }

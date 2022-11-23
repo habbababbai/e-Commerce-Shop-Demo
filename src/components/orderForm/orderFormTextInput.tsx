@@ -10,7 +10,7 @@ export default function OrderFormTextInput(props: Props) {
     const [field, meta] = useField(props);
     return (
         <div>
-            <label htmlFor={props.name}>{props.label}</label>
+            <label className="order-form-label" htmlFor={props.name}>{props.label}</label>
             <br></br>
             <input
                 {...field}

@@ -1,0 +1,21 @@
+@import "../../globals.scss";
+
+.thank-you-container {
+    @include white-container();
+    margin-top: 46px;
+    height: 320px;
+}
+.bg {
+    display: flex;
+    justify-content: space-between;
+    min-height: 96vh;
+    flex-direction: column;
+    align-items: center;
+}
+.thank-you-button {
+    @include blue-button();
+    height: 45px;
+    width: 120px;
+    margin-bottom: 32px;
+    margin-top: 16px;
+}
