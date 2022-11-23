@@ -1,6 +1,5 @@
 import "./thankYouPage.scss";
 import { Link } from "react-router-dom";
-import { ExtendedItem } from "../../common/item";
 import Footer from "../footer/footer";
 
 export default function ThankYouPage() {

@@ -34,8 +34,8 @@ export default function ItemPage() {
     if (error || !data) return <ErrorPage />;
 
     return (
-        <div className="item-page-container">
-            <div className="item-page navbar-offset">
+        <div className="item-bg">
+            <div className="item-page-container navbar-offset">
                 <h2>{data?.title}</h2>
                 <img src={data?.image} alt={""}></img>
                 <h3>Price: {data?.price}$</h3>

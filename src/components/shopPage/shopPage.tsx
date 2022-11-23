@@ -26,23 +26,28 @@ export default function ShopPage() {
                     This store is using data from{" "}
                     <a href="https://fakestoreapi.com/">Fake Store API</a>
                     <br />
-                    Source code for this site can be found <a>here</a>
+                    Source code for this site can be found{" "}
+                    <a href="https://github.com/habbababbai/e-Commerce-Shop-Demo">
+                        here
+                    </a>
                 </h4>
             </div>
-            <div className="items-container">
-                {data?.map((item: Item) => {
-                    return (
-                        <ItemNode
-                            key={item.id}
-                            id={item.id}
-                            title={item.title}
-                            price={item.price}
-                            category={item.category}
-                            image={item.image}
-                            description={item.description}
-                        ></ItemNode>
-                    );
-                })}
+            <div className="items-bg">
+                <div className="items-container">
+                    {data?.map((item: Item) => {
+                        return (
+                            <ItemNode
+                                key={item.id}
+                                id={item.id}
+                                title={item.title}
+                                price={item.price}
+                                category={item.category}
+                                image={item.image}
+                                description={item.description}
+                            ></ItemNode>
+                        );
+                    })}
+                </div>
             </div>
             <Footer></Footer>
         </div>

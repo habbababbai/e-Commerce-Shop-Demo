@@ -1,21 +1,21 @@
 @import "../../globals.scss";
 
-.item-page-container {
+.item-bg {
     @include flex-column();
     padding-top: 100px;
     min-height: 100vh;
 }
 
-.item-page {
+.item-page-container {
     height: max-content;
     @include white-container();
     margin-bottom: 32px;
 }
-.item-page h2 {
+.item-page-container h2 {
     @include black-font();
 }
 
-.item-page img {
+.item-page-container img {
     max-height: 150px;
     max-width: 150px;
 }
@@ -29,4 +29,10 @@
 .description {
     @include text-left();
     padding-bottom: 24px;
+}
+
+@media only screen and (min-width: 992px) {
+    .item-page-container {
+        @include desktop-container();
+    }
 }

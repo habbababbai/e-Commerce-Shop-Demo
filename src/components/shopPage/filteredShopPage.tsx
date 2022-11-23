@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import "./shopPage.scss";
 import { useParams } from "react-router-dom";
 import { useGetAllProductsInCategoryQuery } from "../../features/shopAPI/shopAPI";
@@ -20,20 +20,22 @@ export default function FilteredShopPage() {
     return (
         <div className="shop-container navbar-offset">
             <h1>{`${id?.charAt(0).toUpperCase()}${id?.slice(1)}`}</h1>
-            <div className="items-container">
-                {data?.map((item: Item) => {
-                    return (
-                        <ItemNode
-                            key={item.id}
-                            id={item.id}
-                            title={item.title}
-                            price={item.price}
-                            category={item.category}
-                            image={item.image}
-                            description={item.description}
-                        ></ItemNode>
-                    );
-                })}
+            <div className="items-bg">
+                <div className="items-container">
+                    {data?.map((item: Item) => {
+                        return (
+                            <ItemNode
+                                key={item.id}
+                                id={item.id}
+                                title={item.title}
+                                price={item.price}
+                                category={item.category}
+                                image={item.image}
+                                description={item.description}
+                            ></ItemNode>
+                        );
+                    })}
+                </div>
             </div>
             <Footer></Footer>
         </div>

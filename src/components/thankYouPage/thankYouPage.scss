@@ -19,3 +19,8 @@
     margin-bottom: 32px;
     margin-top: 16px;
 }
+@media only screen and (min-width: 992px) {
+    .thank-you-container {
+        @include desktop-container();
+    }
+}

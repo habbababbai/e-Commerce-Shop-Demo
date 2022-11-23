@@ -3,7 +3,7 @@ import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import OrderFormItemNode from "./orderFormItemNode";
 import { useNavigate } from "react-router-dom";
 import ErrorPage from "../errorPage/errorPage";
-import { Formik, Field, Form } from "formik";
+import { Formik, Form } from "formik";
 import OrderFormTextInput from "./orderFormTextInput";
 import OrderFormTextAreaInput from "./orderFormTextAreaInput";
 import OrderFormSelectInput from "./orderFormSelectInput";
@@ -14,7 +14,6 @@ import {
     stNumberRegex,
 } from "../../common/regexes";
 import * as Yup from "yup";
-import { ExtendedItem } from "../../common/item";
 import { removeAllItems } from "../../features/localCart/localCart";
 import { useState } from "react";
 import Footer from "../footer/footer";

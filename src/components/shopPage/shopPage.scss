@@ -1,3 +1,5 @@
+@import "../../globals.scss";
+
 .shop-container h1 {
     padding-top: 24px;
     font-size: 36px;
@@ -8,7 +10,7 @@
     background-size: cover;
     display: flex;
     flex-direction: column;
-    justify-content: end;
+    justify-content: flex-end;
 }
 
 .shop-header h1,
@@ -28,4 +30,15 @@ h4 {
     flex-direction: column;
     gap: 32px;
     align-items: center;
+}
+/* Medium Devices, Desktops */
+@media only screen and (min-width: 992px) {
+    .items-container {
+        display: grid;
+        grid-template-columns: 600px 600px;
+        grid-template-rows: 700px 700px;
+    }
+    .items-bg {
+        @include flex-column;
+    }
 }

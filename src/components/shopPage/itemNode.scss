@@ -5,15 +5,24 @@
 }
 
 .item-node img {
-    max-height: 150px;
-    max-width: 150px;
+    height: 150px;
+    width: 150px;
 }
 .item-node h2 {
     padding-top: 32px;
     @include black-font();
+    height: 100px;
 }
 .item-node-button {
     @include blue-button();
     height: 40px;
     width: 120px;
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width: 992px) {
+    .item-node {
+        height: 600px;
+        justify-content: flex-end;
+    }
 }
