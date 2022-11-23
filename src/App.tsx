@@ -1,5 +1,5 @@
 import React, { useLayoutEffect } from "react";
-import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { HashRouter, Routes, Route, useLocation } from "react-router-dom";
 import "./App.scss";
 import Shop from "./components/shopPage/shopPage";
 import FilteredShopPage from "./components/shopPage/filteredShopPage";
@@ -21,7 +21,7 @@ const Wrapper = ({ children }: any) => {
 
 function App() {
     return (
-        <BrowserRouter>
+        <HashRouter>
             <div className="App">
                 <Navbar></Navbar>
                 <Wrapper>
@@ -43,7 +43,7 @@ function App() {
                     </Routes>
                 </Wrapper>
             </div>
-        </BrowserRouter>
+        </HashRouter>
     );
 }
 
