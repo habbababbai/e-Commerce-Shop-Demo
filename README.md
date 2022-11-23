@@ -1,8 +1,24 @@
-# Getting Started with Create React App
+# E-Commerce Demo Shop
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) TS template.
+This project is simple dummy web store using fake data available at [FakeStore](https://fakestoreapi.com/). \
+Because of the fact that we can't actually post data to the API and later fetch it, cart was created as local state stored in Redux store.
+App is available [right here](https://habbababbai.github.io/e-Commerce-Shop-Demo/). \
+\
+Technologies and packages used in this project are: 
+- React
+- Redux Toolkit
+- Sass
+- Formik
 
-## Available Scripts
+## Folder Structure
+- **assets** ( images and icons )
+- **common** ( types, interfaces and other )
+- **components** ( react components )
+- **features** ( Redux Toolkit store slices )
+- **redux** ( store and it's hooks )
+
+
+## Available Scripts - scrapped from create-react-app
 
 In the project directory, you can run:
 

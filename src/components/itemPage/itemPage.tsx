@@ -17,7 +17,7 @@ export default function ItemPage() {
     const [showSuccess, setShowSuccess] = useState(false);
 
     function increment() {
-        if (counter + 1 <= 20) setCounter(counter + 1);
+        if (counter + 1 <= 5) setCounter(counter + 1);
     }
     function decrement() {
         if (counter - 1 > 0) setCounter(counter - 1);
@@ -54,6 +54,11 @@ export default function ItemPage() {
                         className="item-page-button"
                         disabled={showSuccess}
                         onClick={() => handleButtonClick()}
+                        style={
+                            showSuccess
+                                ? { pointerEvents: "none", opacity: "0.4" }
+                                : {}
+                        }
                     >
                         Add to Cart
                     </button>

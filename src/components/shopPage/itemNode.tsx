@@ -1,5 +1,5 @@
 import "./itemNode.scss";
-import React, { useRef } from "react";
+import React from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Item } from "../../common/item";
@@ -15,7 +15,7 @@ export default function ItemNode(props: Item) {
     const dispatch = useAppDispatch();
 
     function increment() {
-        if (counter + 1 <= 20) setCounter(counter + 1);
+        if (counter + 1 <= 5) setCounter(counter + 1);
     }
     function decrement() {
         if (counter - 1 > 0) setCounter(counter - 1);
@@ -45,6 +45,9 @@ export default function ItemNode(props: Item) {
                 className="item-node-button"
                 disabled={showSuccess}
                 onClick={() => handleButtonClick()}
+                style={
+                    showSuccess ? { pointerEvents: "none", opacity: "0.4" } : {}
+                }
             >
                 Add to Cart
             </button>

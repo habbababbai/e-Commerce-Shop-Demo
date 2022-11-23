@@ -1,11 +1,7 @@
 @import "../../globals.scss";
 
 @mixin item-node-buttons() {
-    font-weight: bold;
-    background-color: $color1;
-    color: #ffffff;
-    border: none;
-    border-radius: 10px;
+    @include blue-button();
     height: 32px;
     width: 32px;
 }
@@ -26,4 +22,8 @@
 }
 .counter span {
     @include item-node-font();
+}
+.counter button:active {
+    transition: 0.2s;
+    background-color: $color2;
 }

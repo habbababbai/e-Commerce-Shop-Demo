@@ -20,6 +20,7 @@
 }
 .cart-container {
     @include flex-column;
+    width: 95%;
 }
 @media only screen and (min-width: 992px) {
     .cart-container {
