@@ -10,17 +10,18 @@ export function NavbarMenu(props: Props) {
     const { data, error, isLoading } = useGetAllProductCategoriesQuery("");
 
     return (
-        <div className="navbar-menu">
-            <p>
+        <ul className="navbar-menu" role="menu">
+            <li>
                 <Link
                     onClick={() => props.onClickFn()}
                     className="navbar-menu-element"
                     to="/"
+                    role={"menuitem"}
                 >
                     Home
                 </Link>
-            </p>
-            <p>
+            </li>
+            <li>
                 <Link
                     onClick={() => props.onClickFn()}
                     className="navbar-menu-element"
@@ -28,16 +29,16 @@ export function NavbarMenu(props: Props) {
                 >
                     Cart
                 </Link>
-            </p>
+            </li>
             {isLoading ? (
-                <div>...Loading</div>
+                <li>...Loading</li>
             ) : error ? (
-                <div>Error occured!</div>
+                <li>Error occured!</li>
             ) : (
                 data?.map((item: string) => {
                     const categoryId = `category/${item}`;
                     return (
-                        <p key={item}>
+                        <li key={item}>
                             <Link
                                 onClick={() => props.onClickFn()}
                                 to={categoryId}
@@ -45,10 +46,10 @@ export function NavbarMenu(props: Props) {
                             >
                                 {item.charAt(0).toUpperCase() + item.slice(1)}
                             </Link>
-                        </p>
+                        </li>
                     );
                 })
             )}
-        </div>
+        </ul>
     );
 }

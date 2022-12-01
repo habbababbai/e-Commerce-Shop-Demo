@@ -1,9 +1,10 @@
 import ItemPage from "./itemPage";
-import { MemoryRouter, Router, Routes, Route } from "react-router-dom";
-import { fireEvent, render, screen, cleanup } from "@testing-library/react";
+import { Router, Routes, Route } from "react-router-dom";
+import { fireEvent, render, screen} from "@testing-library/react";
 import { Provider } from "react-redux";
 import { store } from "../../redux/store";
-import { createMemoryHistory, MemoryHistory } from "history";
+import { createMemoryHistory } from "history";
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import localCart from "../../features/localCart/localCart";
 
 const itemData = {

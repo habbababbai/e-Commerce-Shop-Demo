@@ -2,7 +2,9 @@
 
 This project is simple dummy web store using fake data available at [FakeStore](https://fakestoreapi.com/). \
 Because of the fact that we can't actually post data to the API and later fetch it, cart was created as local state stored in Redux store.
-App is available [right here](https://habbababbai.github.io/e-Commerce-Shop-Demo/). \
+App is available [right here](https://habbababbai.github.io/e-Commerce-Shop-Demo/). 
+\
+Unit tests for code are made using Jest and Testing-Library.\
 \
 Technologies and packages used in this project are:
 
@@ -10,6 +12,9 @@ Technologies and packages used in this project are:
 -   Redux Toolkit
 -   Sass
 -   Formik
+-   Yup
+-   Jest
+-   Testing-Library
 
 ## Folder Structure
 

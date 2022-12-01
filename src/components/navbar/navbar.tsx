@@ -20,10 +20,10 @@ export default function Navbar() {
                 className="homeButton"
                 to="/"
             >
-                <img src={homeIcon} alt={""}></img>
+                <img src={homeIcon} alt={"home"}></img>
             </Link>
             <Link onClick={() => setChecked(false)} to="cart">
-                <img src={cartIcon} alt={""}></img>
+                <img src={cartIcon} alt={"cart"}></img>
             </Link>
             {checked ? (
                 <NavbarMenu onClickFn={() => setChecked(false)}></NavbarMenu>

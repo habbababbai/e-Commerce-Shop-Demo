@@ -9,4 +9,14 @@ describe("footer", () => {
         expect(name).toBeInTheDocument();
         expect(icons).toBeInTheDocument();
     });
+    test("have proper url", () => {
+        render(<Footer />);
+        const myLink = screen.getByText("habbababbai");
+        expect(myLink).toHaveAttribute(
+            "href",
+            "https://github.com/habbababbai"
+        );
+        const icons8Link = screen.getByText("Icons8");
+        expect(icons8Link).toHaveAttribute("href", "https://icons8.com/");
+    });
 });
