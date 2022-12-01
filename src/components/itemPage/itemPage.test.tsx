@@ -98,5 +98,13 @@ describe("item page", () => {
         const add = await screen.findByText("Add to Cart");
         fireEvent.click(add);
         expect(store.getState().localCart.length).toBe(1);
+        expect(
+            await screen.findByText("Succesfully added items!")
+        ).toBeInTheDocument();
+        expect(add).toBeDisabled();
+
+        setTimeout(() => {
+            expect(add).toBeEnabled();
+        }, 5000);
     });
 });
