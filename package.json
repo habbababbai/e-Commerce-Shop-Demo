@@ -1,7 +1,7 @@
 {
     "name": "e-commerce-shop-demo",
     "version": "0.1.0",
-    "homepage": "https://habbababbai.github.io/e-Commerce-Shop-Demo/",
+    "homepage": "https://habbababbai.github.io/e-Commerce-Shop-Demo/#",
     "private": true,
     "dependencies": {
         "@reduxjs/toolkit": "^1.9.0",
