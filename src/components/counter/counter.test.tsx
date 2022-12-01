@@ -10,9 +10,6 @@ describe("counter", () => {
         const value = screen.getByText(/1/i);
         expect(value).toBeInTheDocument();
     });
-});
-
-describe("counter", () => {
     test("runs function", () => {
         let number = 1;
         const increment = () => {

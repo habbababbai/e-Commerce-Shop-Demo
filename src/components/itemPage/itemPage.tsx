@@ -37,7 +37,7 @@ export default function ItemPage() {
         <div className="item-bg">
             <div className="item-page-container navbar-offset">
                 <h2>{data?.title}</h2>
-                <img src={data?.image} alt={""}></img>
+                <img src={data?.image} alt={"item"}></img>
                 <h3>Price: {data?.price}$</h3>
                 <h3>Category: {data?.category}</h3>
                 <p>
