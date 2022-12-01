@@ -1,8 +1,9 @@
 import ItemPage from "./itemPage";
-import { MemoryRouter, Routes, Route } from "react-router-dom";
-import { fireEvent, render, screen } from "@testing-library/react";
+import { MemoryRouter, Router, Routes, Route } from "react-router-dom";
+import { fireEvent, render, screen, cleanup } from "@testing-library/react";
 import { Provider } from "react-redux";
 import { store } from "../../redux/store";
+import { createMemoryHistory, MemoryHistory } from "history";
 import localCart from "../../features/localCart/localCart";
 
 const itemData = {
@@ -14,18 +15,26 @@ const itemData = {
         "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday",
 };
 
+const history = createMemoryHistory({
+    initialEntries: [`/items/1`],
+});
+history.push = jest.fn();
+
+function TestComponent() {
+    return (
+        <Provider store={store}>
+            <Router location={history.location} navigator={history}>
+                <Routes>
+                    <Route path="/items/:id" element={<ItemPage />}></Route>
+                </Routes>
+            </Router>
+        </Provider>
+    );
+}
+
 describe("item page", () => {
     test("display item data", async () => {
-        const itemID = "1";
-        render(
-            <Provider store={store}>
-                <MemoryRouter initialEntries={[`/items/${itemID}`]}>
-                    <Routes>
-                        <Route path="/items/:id" element={<ItemPage />}></Route>
-                    </Routes>
-                </MemoryRouter>
-            </Provider>
-        );
+        render(<TestComponent />);
         const title = await screen.findByText(itemData.title);
         expect(title).toBeInTheDocument();
 
@@ -48,17 +57,7 @@ describe("item page", () => {
     });
 
     test("add to cart values", async () => {
-        const itemID = "1";
-
-        render(
-            <Provider store={store}>
-                <MemoryRouter initialEntries={[`/items/${itemID}`]}>
-                    <Routes>
-                        <Route path="/items/:id" element={<ItemPage />}></Route>
-                    </Routes>
-                </MemoryRouter>
-            </Provider>
-        );
+        render(<TestComponent />);
         const increment = await screen.findByText("+");
         const decrement = await screen.findByText("-");
         const value = await screen.findByText("1");
@@ -84,17 +83,7 @@ describe("item page", () => {
         expect(await screen.findByText("1")).toBeInTheDocument();
     });
     test("add to local cart", async () => {
-        const itemID = "1";
-
-        render(
-            <Provider store={store}>
-                <MemoryRouter initialEntries={[`/items/${itemID}`]}>
-                    <Routes>
-                        <Route path="/items/:id" element={<ItemPage />}></Route>
-                    </Routes>
-                </MemoryRouter>
-            </Provider>
-        );
+        render(<TestComponent />);
         const add = await screen.findByText("Add to Cart");
         fireEvent.click(add);
         expect(store.getState().localCart.length).toBe(1);
@@ -106,5 +95,22 @@ describe("item page", () => {
         setTimeout(() => {
             expect(add).toBeEnabled();
         }, 5000);
+    });
+    test("go home", async () => {
+        render(<TestComponent />);
+        const add = await screen.findByText("Go home");
+        fireEvent.click(add);
+
+        expect(history.push).toHaveBeenCalledTimes(1);
+        expect(history.push).toBeCalledWith(
+            { hash: "", pathname: "/", search: "" },
+            undefined,
+            {
+                preventScrollReset: undefined,
+                relative: undefined,
+                replace: false,
+                state: undefined,
+            }
+        );
     });
 });

@@ -30,7 +30,7 @@ export default function ItemNode(props: Item) {
     return (
         <div className="item-node" key={props.id}>
             <h2>{props.title}</h2>
-            <img src={props.image} alt={""}></img>
+            <img src={props.image} alt={"item"}></img>
             <p>
                 Price : <b>{props.price} $</b>
             </p>
