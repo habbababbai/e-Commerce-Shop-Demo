@@ -41,4 +41,40 @@ describe("navbar", () => {
         fireEvent.click(menuButton);
         expect(screen.queryByRole("menu")).toBeNull();
     });
+    test("navigates to cart", () => {
+        render(<TestComponent />);
+        const menuButton = screen.getByRole("checkbox");
+        fireEvent.click(menuButton);
+        const home = screen.getByText("Cart");
+        fireEvent.click(home);
+        expect(history.push).toHaveBeenCalledTimes(1);
+        expect(history.push).toBeCalledWith(
+            { hash: "", pathname: "/cart", search: "" },
+            undefined,
+            {
+                preventScrollReset: undefined,
+                relative: undefined,
+                replace: false,
+                state: undefined,
+            }
+        );
+    });
+    test("navigates to jewerly", async () => {
+        render(<TestComponent />);
+        const menuButton = screen.getByRole("checkbox");
+        fireEvent.click(menuButton);
+        const jewelry = await screen.findByText("Jewelery");
+        fireEvent.click(jewelry);
+        expect(history.push).toHaveBeenCalledTimes(1);
+        expect(history.push).toBeCalledWith(
+            { hash: "", pathname: "/category/jewelery", search: "" },
+            undefined,
+            {
+                preventScrollReset: undefined,
+                relative: undefined,
+                replace: false,
+                state: undefined,
+            }
+        );
+    });
 });

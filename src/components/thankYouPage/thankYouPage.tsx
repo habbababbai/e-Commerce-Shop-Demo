@@ -6,7 +6,7 @@ export default function ThankYouPage() {
     return (
         <div className="thank-you-bg navbar-offset">
             <div className="thank-you-container">
-                <h1>Thank you for you order!</h1>
+                <h1>Thank you for your order!</h1>
                 <p>
                     Additional information about your order will be sent by
                     e-mail
