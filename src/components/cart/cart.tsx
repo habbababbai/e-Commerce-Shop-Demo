@@ -51,7 +51,9 @@ export default function Cart() {
                             return (
                                 <p key={item.id}>
                                     {item.title} x <b>{item.count}</b> :{" "}
-                                    <b>{item.count * item.price} $</b>
+                                    <b>
+                                        {(item.count * item.price).toFixed(2)} $
+                                    </b>
                                 </p>
                             );
                         })}
