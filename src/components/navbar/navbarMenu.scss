@@ -6,12 +6,18 @@
     backdrop-filter: blur(5px);
     height: calc(100vh - 50px);
     width: 250px;
-    top: 50px;
+    top: 29px;
     left: 0;
     color: #ffffff;
     font-size: 22px;
+    list-style-type: none;
+    padding-left: 0;
 }
 .navbar-menu-element {
     text-decoration: none;
     color: #ffffff;
+}
+.navbar-menu li {
+    height: 50px;
+    margin-top: 20px;
 }
